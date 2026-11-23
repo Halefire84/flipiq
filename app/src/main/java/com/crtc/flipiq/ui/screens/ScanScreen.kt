@@ -22,7 +22,7 @@ fun ScanScreen(
     var buyPrice by remember { mutableStateOf("") }
     var sellLow by remember { mutableStateOf("") }
     var sellHigh by remember { mutableStateOf("") }
-    var feesPct by remember { mutableStateOf("12.9") }  // eBay default
+    var feesPct by remember { mutableStateOf("12.9") }  // typical platform fee, edit as needed
     var shipping by remember { mutableStateOf("") }
     var premium by remember { mutableStateOf("0") }
     var compsCount by remember { mutableStateOf("") }

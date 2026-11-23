@@ -18,7 +18,7 @@ import kotlin.math.sqrt
 object ConfidenceEngine {
 
     data class MarketSignal(
-        val soldPrices: List<Double>,   // recent sold prices (from eBay or user-entered)
+        val soldPrices: List<Double>,   // user-entered sold prices from any marketplace
         val avgDaysToSell: Double = 14.0, // typical days to sell in this category
         val sellThroughRate: Double = 0.7  // sold / (sold + unsold), 0.0–1.0
     )
