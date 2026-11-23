@@ -1,7 +1,9 @@
 package com.crtc.flipiq.ui.screens
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -16,7 +18,8 @@ import com.crtc.flipiq.model.FlipResult
 fun ScanScreen(
     isPro: Boolean,
     dailyScansLeft: Int,
-    onResult: (FlipResult) -> Unit
+    onResult: (FlipResult) -> Unit,
+    modifier: Modifier = Modifier
 ) {
     var item by remember { mutableStateOf("") }
     var buyPrice by remember { mutableStateOf("") }
@@ -30,8 +33,9 @@ fun ScanScreen(
     var error by remember { mutableStateOf<String?>(null) }
 
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
+            .verticalScroll(rememberScrollState())
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {

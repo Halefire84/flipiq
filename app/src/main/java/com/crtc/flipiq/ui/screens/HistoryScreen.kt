@@ -24,10 +24,11 @@ import java.util.*
 fun HistoryScreen(
     scans: List<FlipResult>,
     onSelect: (FlipResult) -> Unit,
-    onDelete: (FlipResult) -> Unit
+    onDelete: (FlipResult) -> Unit,
+    modifier: Modifier = Modifier
 ) {
     if (scans.isEmpty()) {
-        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Box(modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             Column(horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 Text("No scans yet", style = MaterialTheme.typography.titleMedium)
@@ -40,7 +41,7 @@ fun HistoryScreen(
     }
 
     LazyColumn(
-        modifier = Modifier.fillMaxSize().padding(horizontal = 16.dp),
+        modifier = modifier.fillMaxSize().padding(horizontal = 16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(vertical = 16.dp)
     ) {
