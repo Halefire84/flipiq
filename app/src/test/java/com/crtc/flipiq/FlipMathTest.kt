@@ -23,8 +23,12 @@ class FlipMathTest {
     }
 
     @Test fun `RISKY — profitable but under target ROI`() {
-        val r = FlipMath.calculate(18.0, 25.0, 12.9, 4.0, 0.0, plan)
+        // buy=14 sell=25 fees=12.9% ship=4: net=17.78 profit=3.78 ROI=27% — positive but under 30%/5$ targets
+        val r = FlipMath.calculate(14.0, 25.0, 12.9, 4.0, 0.0, plan)
         assertEquals(FlipMath.Verdict.RISKY, r.verdict)
+        assertTrue("profit positive", r.profit > 0)
+        assertNotNull(r.roi)
+        assertTrue("roi under target", r.roi!! < plan.minRoiPct)
     }
 
     @Test fun `zero buy price — roi is null`() {
